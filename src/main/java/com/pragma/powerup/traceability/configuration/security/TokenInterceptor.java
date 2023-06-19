@@ -4,6 +4,7 @@ package com.pragma.powerup.traceability.configuration.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.pragma.powerup.traceability.configuration.security.exception.TokenException;
+import com.pragma.powerup.traceability.configuration.security.exception.UserNotRoleAuthorized;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Setter;
@@ -46,9 +47,19 @@ public class TokenInterceptor implements HandlerInterceptor {
         idUser = decodedJWT.getClaim("id").asLong();
 
         String roleUser = roles.get(0);
-        return true;
+        if (CONSUMER.equals(roleUser) && isClient(request.getRequestURI())) {
+            return true;
+        }
+        throw new UserNotRoleAuthorized();
 
     }
+
+    private boolean isClient(String requestURI) {
+        return requestURI.startsWith("/traceability/record");
+
+    }
+
+
 
 }
 
