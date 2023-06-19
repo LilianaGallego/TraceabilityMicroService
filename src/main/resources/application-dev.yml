@@ -8,8 +8,8 @@ jwt:
 spring:
   data:
     mongodb:
-      ##uri: mongodb+srv://lilianagallegom:1dAPD680s34zIcte@cluster0.4idvqkx.mongodb.net/?retryWrites=true&w=majority
-      uri: mongodb://localhost:27017/Traceability
+      uri: mongodb+srv://lilianagallegom:1dAPD680s34zIcte@cluster0.4idvqkx.mongodb.net/?retryWrites=true&w=majority
+
       database: Traceability
 
 management:
