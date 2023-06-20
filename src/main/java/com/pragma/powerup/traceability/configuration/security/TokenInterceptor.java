@@ -51,6 +51,9 @@ public class TokenInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if (OWNER.equals(roleUser) && isOwner(request.getRequestURI())) {
+            return true;
+        }
         if (CONSUMER.equals(roleUser) && recordsByClient(request.getRequestURI())) {
             return true;
         }
@@ -63,8 +66,12 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     }
 
+    private boolean isOwner(String requestURI) {
+        return requestURI.contains("/traceability/record");
+
+    }
     private boolean recordsByClient(String requestURI) {
-        return requestURI.contains("/traceability/records/client");
+        return requestURI.startsWith("/traceability/records/client/**");
 
     }
 

@@ -46,8 +46,8 @@ public class RecordRestController {
                     @ApiResponse(responseCode = "404", description = "Records not found ",
                             content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
             })
-    @GetMapping("/records/client")
-    public ResponseEntity<List<RecordResponseDto>> getAllRecordsByClient(@RequestParam Long idClient) {
+    @GetMapping("/records/client/{idClient}")
+    public ResponseEntity<List<RecordResponseDto>> getAllRecordsByClient(@PathVariable Long idClient) {
 
         return ResponseEntity.ok(recordHandler.getAllRecordsByClient(idClient));
     }
