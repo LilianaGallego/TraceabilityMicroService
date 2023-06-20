@@ -20,11 +20,11 @@ public class RecordCollection {
     private String id;
     private Long idOrder;
     private Long idClient;
+    private String emailClient;
     private LocalDate date;
     private String stateOld;
     private String stateNew;
-    private String urlLogo;
     private Long idEmployee;
-    private String email;
+    private String emailEmployee;
 
 }

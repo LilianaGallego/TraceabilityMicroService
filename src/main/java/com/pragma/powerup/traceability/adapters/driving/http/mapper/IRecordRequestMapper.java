@@ -10,5 +10,5 @@ import org.mapstruct.ReportingPolicy;
         unmappedSourcePolicy = ReportingPolicy.IGNORE)
 public interface IRecordRequestMapper {
 
-    Record toOrder(RecordRequestDto restaurantRequestDto);
+    Record toRecord(RecordRequestDto recordRequestDto);
 }

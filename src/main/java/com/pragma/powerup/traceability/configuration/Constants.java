@@ -15,9 +15,9 @@ public class Constants {
     public static final String RESPONSE_ERROR_MESSAGE_TOKEN= "A problem with the token has occurred";
     public static final String USER_NOT_FOUND_MESSAGE = "No user found with the role provided";
     public static final String NO_DATA_FOUND_MESSAGE = "No data found for the requested petition";
-    public static final String SWAGGER_TITLE_MESSAGE = "SmallSquare API Pragma Power Up";
+    public static final String SWAGGER_TITLE_MESSAGE = "Traceability API Pragma Power Up";
     public static final String USER_NOT_ROLE_AUTHORIZED= "the user's role is not authorized";
-    public static final String SWAGGER_DESCRIPTION_MESSAGE = "SmallSquare microservice";
+    public static final String SWAGGER_DESCRIPTION_MESSAGE = "Traceability microservice";
     public static final String SWAGGER_VERSION_MESSAGE = "1.0.0";
     public static final String SWAGGER_LICENSE_NAME_MESSAGE = "Apache 2.0";
     public static final String SWAGGER_LICENSE_URL_MESSAGE = "http://springdoc.org";

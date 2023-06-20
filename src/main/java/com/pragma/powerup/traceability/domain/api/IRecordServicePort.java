@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IRecordServicePort {
     void saveRecord(Record order);
-    List<Record> getAllOrders();
+    List<Record> getAllRecordsByClient(Long idClient);
 
 }

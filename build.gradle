@@ -37,6 +37,7 @@ dependencies {
 	implementation 'com.auth0:java-jwt:4.3.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.mongodb:mongodb-driver-sync:4.8.2'
+	//implementation 'org.mongodb:mongodb-driver-sync:4.4.0'
 
 
 
