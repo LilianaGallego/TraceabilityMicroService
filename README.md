@@ -48,9 +48,14 @@ It contains the connection
 To get a local copy up and running follow these steps:
 
 1. Clone the repository
-2. Create a database in MySql with the smallsquare
-3. 
+2. Create a database in MongoDB Compass with the Traceability and  collections Records
+3. Run the microservice by right clicking on the TraceabilityMicroserviceApplication file and then on run
+4. The port on which the microservice runs is 8070 which can be modified by entering the application-dev.yml file.
+5. The documentation of the code is in the following link
+   http://localhost:8070/swagger-ui/index.html#
 
+
+![img.png](img.png)
 <!-- ROADMAP -->
 ## Tests
 

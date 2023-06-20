@@ -7,20 +7,21 @@ import com.pragma.powerup.traceability.domain.api.IRecordServicePort;
 import java.util.List;
 
 public class RecordUseCase implements IRecordServicePort {
-    private final IRecordPersistencePort orderPersistencePort;
+    private final IRecordPersistencePort recordPersistencePort;
 
-    public RecordUseCase(IRecordPersistencePort orderPersistencePort) {
-        this.orderPersistencePort = orderPersistencePort;
+    public RecordUseCase(IRecordPersistencePort recordPersistencePort) {
+        this.recordPersistencePort = recordPersistencePort;
     }
 
 
     @Override
-    public void saveRecord(Record order) {
-        orderPersistencePort.saveRecord(order);
+    public void saveRecord(Record records) {
+        recordPersistencePort.saveRecord(records);
     }
 
     @Override
-    public List<Record> getAllOrders() {
-        return null;
+    public List<Record> getAllRecordsByClient(Long idClient) {
+        return recordPersistencePort.getAllRecordsByClient(idClient);
     }
+
 }

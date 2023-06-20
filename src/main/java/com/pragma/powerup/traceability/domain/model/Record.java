@@ -6,27 +6,26 @@ public class Record {
     private String id;
     private Long idOrder;
     private Long idClient;
+    private String emailClient;
     private LocalDate date;
     private String stateOld;
     private String stateNew;
-    private String urlLogo;
     private Long idEmployee;
-    private String email;
+    private String emailEmployee;
 
     public Record() {
     }
 
-    public Record(String id, Long idOrder, Long idClient, LocalDate date, String stateOld, String stateNew,
-                  String urlLogo, Long idEmployee, String email) {
+    public Record(String id, Long idOrder, Long idClient, String emailClient, LocalDate date, String stateOld, String stateNew, Long idEmployee, String emailEmployee) {
         this.id = id;
         this.idOrder = idOrder;
         this.idClient = idClient;
+        this.emailClient = emailClient;
         this.date = date;
         this.stateOld = stateOld;
         this.stateNew = stateNew;
-        this.urlLogo = urlLogo;
         this.idEmployee = idEmployee;
-        this.email = email;
+        this.emailEmployee = emailEmployee;
     }
 
     public String getId() {
@@ -77,14 +76,6 @@ public class Record {
         this.stateNew = stateNew;
     }
 
-    public String getUrlLogo() {
-        return urlLogo;
-    }
-
-    public void setUrlLogo(String urlLogo) {
-        this.urlLogo = urlLogo;
-    }
-
     public Long getIdEmployee() {
         return idEmployee;
     }
@@ -93,11 +84,19 @@ public class Record {
         this.idEmployee = idEmployee;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailEmployee() {
+        return emailEmployee;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailEmployee(String emailEmployee) {
+        this.emailEmployee = emailEmployee;
+    }
+
+    public String getEmailClient() {
+        return emailClient;
+    }
+
+    public void setEmailClient(String emailClient) {
+        this.emailClient = emailClient;
     }
 }

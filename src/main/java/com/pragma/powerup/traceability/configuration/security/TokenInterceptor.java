@@ -50,14 +50,32 @@ public class TokenInterceptor implements HandlerInterceptor {
         if (CONSUMER.equals(roleUser) && isClient(request.getRequestURI())) {
             return true;
         }
+
+        if (OWNER.equals(roleUser) && isOwner(request.getRequestURI())) {
+            return true;
+        }
+        if (CONSUMER.equals(roleUser) && recordsByClient(request.getRequestURI())) {
+            return true;
+        }
         throw new UserNotRoleAuthorized();
 
     }
 
     private boolean isClient(String requestURI) {
-        return requestURI.startsWith("/traceability/record");
+        return requestURI.contains("/traceability/record");
 
     }
+
+    private boolean isOwner(String requestURI) {
+        return requestURI.contains("/traceability/record");
+
+    }
+    private boolean recordsByClient(String requestURI) {
+        return requestURI.startsWith("/traceability/records/client/**");
+
+    }
+
+
 
 
 

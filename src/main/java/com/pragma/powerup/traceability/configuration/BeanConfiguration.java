@@ -15,16 +15,16 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class BeanConfiguration {
 
-    private final IRecordRepository orderRepository;
-    private final IRecordCollectionMapper orderCollectionMapper;
+    private final IRecordRepository recordRepository;
+    private final IRecordCollectionMapper recordCollectionMapper;
 
     @Bean
-    public IRecordServicePort orderServicePort() {
-        return new RecordUseCase(orderPersistencePort());
+    public IRecordServicePort recordServicePort() {
+        return new RecordUseCase(recordPersistencePort());
     }
     @Bean
-    public IRecordPersistencePort orderPersistencePort() {
-        return new RecordMongoAdapter(orderRepository, orderCollectionMapper);
+    public IRecordPersistencePort recordPersistencePort() {
+        return new RecordMongoAdapter(recordRepository, recordCollectionMapper);
     }
 
     @Bean

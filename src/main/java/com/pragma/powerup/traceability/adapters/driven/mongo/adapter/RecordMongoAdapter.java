@@ -7,16 +7,23 @@ import com.pragma.powerup.traceability.domain.spi.IRecordPersistencePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Transactional
 public class RecordMongoAdapter implements IRecordPersistencePort {
-    private final IRecordRepository orderRepository;
-    private final IRecordCollectionMapper orderCollectionMapper;
+    private final IRecordRepository recordRepository;
+    private final IRecordCollectionMapper recordCollectionMapper;
 
 
     @Override
-    public void saveRecord(Record order) {
-        orderRepository.save(orderCollectionMapper.toCollection(order));
+    public void saveRecord(Record records) {
+        recordRepository.save(recordCollectionMapper.toCollection(records));
 
+    }
+
+    @Override
+    public List<Record> getAllRecordsByClient(Long idClient) {
+        return recordCollectionMapper.toRecordList(recordRepository.getAllRecordsByIdClient(idClient));
     }
 }
