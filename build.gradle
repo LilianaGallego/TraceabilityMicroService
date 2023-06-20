@@ -37,10 +37,6 @@ dependencies {
 	implementation 'com.auth0:java-jwt:4.3.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.mongodb:mongodb-driver-sync:4.8.2'
-	//implementation 'org.mongodb:mongodb-driver-sync:4.4.0'
-
-
-
 
 }
 
@@ -56,7 +52,18 @@ jacocoTestReport {
 	}
 	afterEvaluate {
 		classDirectories.setFrom(files(classDirectories.files.collect{
-			fileTree(dir: it, exclude: [])
+			fileTree(dir: it, exclude: [
+					'com/pragma/powerup/traceability/configuration',
+					'com/pragma/powerup/traceability/adapters/driven/mongo/mappers',
+					'com/pragma/powerup/traceability/adapters/driving/http/mapper',
+					'com/pragma/powerup/traceability/domain/model',
+					'com/pragma/powerup/traceability/domain/dtouser',
+					'com/pragma/powerup/traceability/adapters/driven/mongo/collection',
+					'com/pragma/powerup/traceability/adapters/driving/http/dto',
+					'com/pragma/powerup/traceability/adapters/driven/mongo/adapter',
+					'com/pragma/powerup/traceability/adapters/driving/http/handlers',
+					'com/pragma/powerup/traceability/adapters/driven/mongo/exceptions',
+			])
 		}))
 	}
 }
