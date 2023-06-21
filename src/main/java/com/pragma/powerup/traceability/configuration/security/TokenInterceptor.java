@@ -21,8 +21,8 @@ public class TokenInterceptor implements HandlerInterceptor {
     private static String token;
     @Setter
     private static Long idUser;
-    private static final String OWNER= "ROLE_OWNER";
     private static final String CONSUMER= "ROLE_CONSUMER";
+    private static final String EMPLOYEE= "ROLE_EMPLOYEE";
 
 
     public static String getAuthorizationToken() {
@@ -47,13 +47,11 @@ public class TokenInterceptor implements HandlerInterceptor {
         idUser = decodedJWT.getClaim("id").asLong();
 
         String roleUser = roles.get(0);
-        if (CONSUMER.equals(roleUser) && isClient(request.getRequestURI())) {
+        if ((CONSUMER.equals(roleUser) || EMPLOYEE.equals(roleUser)) && isClient(request.getRequestURI())) {
             return true;
         }
 
-        if (OWNER.equals(roleUser) && isOwner(request.getRequestURI())) {
-            return true;
-        }
+
         if (CONSUMER.equals(roleUser) && recordsByClient(request.getRequestURI())) {
             return true;
         }
@@ -66,12 +64,12 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     }
 
-    private boolean isOwner(String requestURI) {
+    private boolean isEmployee(String requestURI) {
         return requestURI.contains("/traceability/record");
 
     }
     private boolean recordsByClient(String requestURI) {
-        return requestURI.startsWith("/traceability/records/client/**");
+        return requestURI.contains("/traceability/records/client/");
 
     }
 
